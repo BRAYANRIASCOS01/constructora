@@ -19,14 +19,6 @@ import useAnnouncementModal from './hooks/useAnnouncementModal';
 import anuncioImage from './assets/anuncios/Anuncio.webp';
 
 export default function App() {
-  // Hook para manejar el modal de anuncio principal
-  const announcementModal = useAnnouncementModal('welcome', {
-    showOnFirstVisit: true,
-    showOnReload: true,
-    autoClose: false,
-    autoCloseTime: 8000
-  });
-
   return (
     <>
       <Routes>
@@ -44,23 +36,6 @@ export default function App() {
         <Route path="/casa-usa-segunda" element={<CasaUsaSegunda/>} />
         <Route path="/casas-lujo" element={<CasasLujo/>} />
       </Routes>
-      
-      {/* Modal de anuncio principal */}
-      <AnnouncementModal
-        isOpen={announcementModal.isOpen}
-        onClose={announcementModal.closeModal}
-        title=""
-        message=""
-        imageUrl={anuncioImage}
-        showLogo={false}
-        autoClose={true}
-        autoCloseTime={8000}
-        showCloseButton={true}
-        showOverlay={true}
-        animation="bounceIn"
-        size="large"
-      />
-      
       <ScrollToTop />
     </>
   );
